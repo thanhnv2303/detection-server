@@ -23,7 +23,7 @@ def predict():
         image_file = request.files["image"]
         image_bytes = image_file.read()
 
-        conf = float(request.form.get("conf")) or 0.45
+        conf = float(request.form.get("conf") or 0.45)
         if conf > 1 or conf < 0:
             conf = 0.5
         img = Image.open(io.BytesIO(image_bytes))
